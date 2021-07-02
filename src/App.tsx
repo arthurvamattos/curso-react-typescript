@@ -1,17 +1,21 @@
 import { ThemeProvider } from "styled-components";
+import { Router } from "react-router-dom";
 
-import { SignIn } from "./pages/SignIn";
 import { GlobalStyle } from "./styles/global";
+import Routes from "./routes";
 
 import theme from "./styles/theme";
+import history from "./services/history";
 
 function App() {
   const newTheme = theme.default;
 
   return (
     <ThemeProvider theme={newTheme}>
-      <SignIn />
-      <GlobalStyle />
+      <Router history={history}>
+        <Routes />
+        <GlobalStyle />
+      </Router>
     </ThemeProvider>
   );
 }
