@@ -4,6 +4,8 @@ import { Router } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import Routes from "./routes";
 
+import ContextProvider from "./contexts";
+
 import theme from "./styles/theme";
 import history from "./services/history";
 
@@ -12,10 +14,12 @@ function App() {
 
   return (
     <ThemeProvider theme={newTheme}>
-      <Router history={history}>
-        <Routes />
-        <GlobalStyle />
-      </Router>
+      <ContextProvider>
+        <Router history={history}>
+          <GlobalStyle />
+          <Routes />
+        </Router>
+      </ContextProvider>
     </ThemeProvider>
   );
 }
