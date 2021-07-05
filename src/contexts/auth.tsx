@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createContext, ReactNode, useState } from "react";
 import api from "../services/api";
+import history from "../services/history";
 
 type Props = {
   children?: ReactNode;
@@ -58,6 +59,8 @@ function AuthProvider({ children }: Props) {
       setUser(apiUser);
       setSigned(true);
       setLoading(false);
+
+      history.push("/dashboard");
     } catch (error) {}
   }
 

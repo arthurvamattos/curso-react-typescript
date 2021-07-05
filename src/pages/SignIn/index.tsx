@@ -2,7 +2,7 @@ import { useContext } from "react";
 import logo from "../../assets/logo.png";
 
 import { AuthContext } from "../../contexts/auth";
-import { Loading } from "../../components";
+import { Loading } from "../../components/Loading";
 
 import { Container, Logo, Input, Button } from "./styles";
 
