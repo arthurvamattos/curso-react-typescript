@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
-import { AuthContext } from "../contexts/auth";
 
 import { Loading } from "../components/Loading";
+import { useAuth } from "../contexts/auth";
 
 type Props = RouteProps & {
   isPrivate?: boolean;
@@ -14,7 +13,7 @@ export default function CustomRoute({
   signed = false,
   ...rest
 }: Props) {
-  const { loading } = useContext(AuthContext);
+  const { loading } = useAuth();
 
   if (loading) {
     return <Loading />;

@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import logo from "../../assets/logo.png";
 
-import { AuthContext } from "../../contexts/auth";
 import { Loading } from "../../components/Loading";
+import { useAuth } from "../../contexts/auth";
 
 import { Container, Logo, Input, Button } from "./styles";
 
 export function SignIn() {
-  const { signIn, loading } = useContext(AuthContext);
+  const { signIn, loading } = useAuth();
 
   function handleSignIn() {
     signIn();

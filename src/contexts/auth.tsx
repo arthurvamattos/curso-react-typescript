@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useContext } from "react";
 import { createContext, ReactNode, useState } from "react";
 import api from "../services/api";
 import history from "../services/history";
@@ -71,4 +72,9 @@ function AuthProvider({ children }: Props) {
   );
 }
 
-export { AuthContext, AuthProvider };
+function useAuth() {
+  const context = useContext(AuthContext);
+  return context;
+}
+
+export { AuthProvider, useAuth };
